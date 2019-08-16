@@ -1,0 +1,8 @@
+.profile{
+  grid-area: p;
+  background-color: orchid;
+}
+
+.item img{
+  width: 50px
+}

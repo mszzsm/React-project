@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header.jsx';
-import Nav from './components/Nav.jsx';
-import Profile from './components/Profile.jsx';
-import Footer from './components/Footer.jsx';
+import Header from './components/Header/Header.jsx';
+import Nav from './components/Nav/Nav.jsx';
+import Profile from './components/Profile/Profile.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 
 const App = () => {

@@ -1,6 +1,6 @@
 .App {
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10px 10px;
+  grid-template-columns: 10px 10px;
   grid-gap: 10px; 
 }
 
@@ -11,9 +11,13 @@
 
   grid-template-areas: 
   "h h"
-  "n p";
+  "n c";
 }
 
+.app-wrapper-content{
+  grid-area: c;
+  background-color: orchid;
+}
 
 
 

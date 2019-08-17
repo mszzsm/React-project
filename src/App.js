@@ -18,7 +18,7 @@ const App = () => {
 
 
       <div className="app-wrapper-content" >
-        <Profile title="Profile" />
+        {/* <Profile title="Profile" /> */}
         <Dialogs title="Dialogs" />
       </div>
 

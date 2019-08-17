@@ -1,5 +1,18 @@
-
 .dialogs{
-  grid-area: c;
-  background-color: orchid;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
 }
+
+.dialogItems{
+   
+}
+
+.messages{
+  padding: 10px;
+}
+
+.dialogItems .active{
+    color: gold;
+}
+
+

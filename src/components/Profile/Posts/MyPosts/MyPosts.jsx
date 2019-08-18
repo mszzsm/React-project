@@ -2,10 +2,14 @@ import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
-//let r = Math.random(1,100)
+
 
 const MyPosts = (props) => {
-   console.log(props)
+
+    //let postsElements = props.posts.map(p => <Post message={p.message} likeCount={p.likesCount} />);
+    
+    const AddPost = () => { console.log('button add post clicked') }
+
     return (
         <div className={s.MyPosts}>
             <div>
@@ -13,12 +17,12 @@ const MyPosts = (props) => {
             </div>
             <div>
                 <textarea> </textarea>
-                <button>Add post</button>
+                <button onClick={AddPost}>Add post</button>
                 <button>Remove</button>
             </div>
             <div clssName={s.posts}>
-                <Post message="this is message 1 "/>
-                <Post message="this is message 2"/>
+                <Post msg="this is message 1 "/>
+                <Post msg="this is message 2"/>
                 <Post />
                 <Post />
                 <Post />

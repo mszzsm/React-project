@@ -1,6 +1,6 @@
 .App {
   grid-template-rows: 10px 10px;
-  grid-template-columns: 10px 10px;
+  grid-template-columns: 1fr 5fr;
   grid-gap: 10px; 
 }
 
@@ -16,8 +16,10 @@
 
 .app-wrapper-content{
   grid-area: c;
-  background-color: orchid;
+  background-color: rgb(235, 246, 255);
 }
+
+
 
 
 

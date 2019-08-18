@@ -16,16 +16,12 @@ const App = () => {
       <Header title="This is header"/>
 
       <Nav title="This is navbar"/>
-      {/* <Profile title="Ava plus description"/> */}
-
-
       <div className="app-wrapper-content" >
-       
         <Route path="/dialogs" component={Dialogs}/>
         <Route path="/profile" component={Profile} />
       </div>
-
-      <Footer title="this is footer"/>
+        <Route path="/dialogs/1" component={Footer} />
+        <Footer title="this is footer"/>
     </div>
     </BrowserRouter>
   )

@@ -1,16 +1,16 @@
 import React from 'react'
-import MyPosts from './Posts/MyPosts/MyPosts'
+import Posts from './Posts/Posts'
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
+    console.log('Profile')
     return (
         <div>
-            <div>
-                <img src="https://picsum.photos/id/10/900/200" alt="content" />
-            </div>
+            <ProfileInfo/>
             <div>
                 <h1> {props.title} </h1>
             </div>
-            <MyPosts massege="My posts"/>
+            <Posts massege="My posts"/>
         </div> 
     )
 }

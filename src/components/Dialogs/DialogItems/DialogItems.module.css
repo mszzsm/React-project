@@ -1,4 +1,6 @@
 .dialogItems{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
     background-color: rgb(134, 134, 255);
     padding: 10px;
 }

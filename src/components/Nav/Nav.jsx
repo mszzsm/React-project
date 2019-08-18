@@ -1,26 +1,19 @@
 import React from 'react' 
 import s from './Nav.module.css'
 
-
-
 const Nav = () => {
+    let navElements = [
+        { name: 'Profile',  link: 'profile' },
+        { name: 'Chat',     link: 'dialogs' },
+        { name: 'News',     link: 'news' },
+        { name: 'Music',    link: 'music' },
+        { name: 'Settings', link: 'settings' },
+    ]
+    let nav = navElements.map(el => (<div className={s.item + '' + s.active}><a href={"/" + el.link}> {el.name}</a> </div>))
+
     return(
         <nav className={s.nav}>
-            <div className={s.item + '' + s.active}>
-                <a href="/profile"> Profile</a>
-            </div>
-            <div className={s.item}>
-                <a href="/dialogs"> Chat</a>
-            </div>
-            <div className={s.item}>
-                <a> News</a>
-            </div>
-            <div className={s.item}>
-                <a> Music</a>
-            </div>
-            <div className={s.item}>
-                <a> Settigs</a>
-            </div>
+            {nav}
         </nav>
     )
 }

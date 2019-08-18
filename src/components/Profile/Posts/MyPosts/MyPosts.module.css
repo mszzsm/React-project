@@ -1,8 +1,19 @@
 .myposts{
   grid-area: p;
-  background-color: orchid;
 }
 
 .item img{
   width: 50px
+}
+
+.add_new_post{
+  margin: 30px;
+  padding: 5%;
+  width: auto;
+  background-color: rgb(231, 183, 243);
+}
+
+.posts {
+  width: 50%;
+  background-color: bisque;
 }

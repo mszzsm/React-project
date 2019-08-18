@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 
 const DialogItems = (props) => {
-
     let path =  "/dialogs/" + props.id 
     return (
         <div className={s.dialogItems}>
@@ -25,27 +24,18 @@ const Message = (props) => {
 }
 
 const Dialogs = (props) => {
+    let Items = props.data.map(item => <DialogItems user={item.user} status={item.status} id={item.id} />)
+    let msg = props.data.map(item => <Message msg={item.msg} />)
     console.log('dialogs')
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                <DialogItems user="Michał Sztefanica" status="" id="1" />
-                <DialogItems user="Michał Sztefanica" status="" id="2" />
-                <DialogItems user="Michał Sztefanica" status="" id="3" />
-                <DialogItems user="Michał Sztefanica" status="" id="4" />
-                <DialogItems user="Michał Sztefanica" status="" id="5" />
-                <DialogItems user="Michał Sztefanica" status="" id="6" />
+               {Items}
             </div>
             <div className={s.messages}>
-                <Message msg="Witam od Michała" />
-                <Message msg="Witam od Michała" />
-                <Message msg="Witam od Michała" />
-                <Message msg="Witam od Michała" />
-                <Message msg="Witam od Michała" />
-                <Message msg="Witam od Michała" />
+               {msg}
             </div>
         </div> 
-
     )
 }
 

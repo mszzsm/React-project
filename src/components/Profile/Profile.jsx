@@ -1,16 +1,16 @@
 import React from 'react'
 import Posts from './Posts/Posts'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import s from './Profile.module.css'
 
 const Profile = (props) => {
-    console.log('Profile')
+    console.log(props)
+
+
     return (
-        <div>
-            <ProfileInfo/>
-            <div>
-                <h1> {props.title} </h1>
-            </div>
-            <Posts massege="My posts"/>
+        <div className={s.profile}>
+            <ProfileInfo name="My Profile "/>
+            <Posts massege="My posts" data={props.data}/>
         </div> 
     )
 }

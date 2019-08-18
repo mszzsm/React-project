@@ -9,24 +9,22 @@ const MyPosts = (props) => {
     //let postsElements = props.posts.map(p => <Post message={p.message} likeCount={p.likesCount} />);
     
     const AddPost = () => { console.log('button add post clicked') }
+    let postElements = props.data.map(el => (<Post msg={el.msg} user={el.user} id={el.id} likesCount={el.likes} />))
 
     return (
-        <div className={s.MyPosts}>
+        <div className={s.myposts}>
             <div>
                 <h1>{props.massege}</h1>
             </div>
-            <div>
+
+            <div className={s.add_new_post}>
                 <textarea> </textarea>
                 <button onClick={AddPost}>Add post</button>
                 <button>Remove</button>
             </div>
+            
             <div clssName={s.posts}>
-                <Post msg="this is message 1 "/>
-                <Post msg="this is message 2"/>
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                { postElements }
             </div>
         </div> 
     )

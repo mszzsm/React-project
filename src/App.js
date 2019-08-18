@@ -10,15 +10,14 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 
 const App = (props) => {
- 
   return (
     <BrowserRouter>
     <div className="app-wrapper">
       <Header title="This is header"/>
-      <Nav title="This is navbar"/>
+        <Nav data={props.appState.navbarLinks}/>
       <div className="app-wrapper-content" >
-        <Route path="/dialogs" render={ () => <Dialogs data={props.AppState.dialogItems}/>}/>
-        <Route path="/profile" render={() =>  <Profile data={props.AppState.msgData}/>}/>
+        <Route path="/dialogs" render={ () => <Dialogs data={props.appState.dialogItems}/>}/>
+        <Route path="/profile" render={() =>  <Profile data={props.appState.msgData}/>}/>
       </div>
         <Route path="/dialogs/1" component={Footer} />
         <Footer title="this is footer"/>

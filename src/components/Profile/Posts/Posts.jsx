@@ -5,7 +5,7 @@ import MyPosts from './MyPosts/MyPosts';
 const Posts = (props) => {
     return (
         <div className={s.posts}>
-           <MyPosts message="My posts" data={props.data}/>
+            <MyPosts message="My posts" data={props.data} addPost={props.addPost}/>
         </div> 
     )
 }

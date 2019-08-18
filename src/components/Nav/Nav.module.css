@@ -6,8 +6,17 @@
 
 .item{
     color: white;
+    margin: 5px;
 }
 
 .active{
     color: gold;
+}
+
+img {
+  border-radius: 30px;
+}
+
+.status {
+  
 }

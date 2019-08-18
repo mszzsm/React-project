@@ -9,6 +9,7 @@ const MyPosts = (props) => {
     //let postsElements = props.posts.map(p => <Post message={p.message} likeCount={p.likesCount} />);
     
     const AddPost = () => { console.log('button add post clicked') }
+
     let postElements = props.data.map(el => (<Post msg={el.msg} user={el.user} id={el.id} likesCount={el.likes} />))
 
     return (
@@ -22,7 +23,7 @@ const MyPosts = (props) => {
                 <button onClick={AddPost}>Add post</button>
                 <button>Remove</button>
             </div>
-            
+
             <div clssName={s.posts}>
                 { postElements }
             </div>

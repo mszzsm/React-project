@@ -1,5 +1,5 @@
 
-    let Store = {
+    const store = {
         _state: {
             
             navbarLinks: [
@@ -36,29 +36,36 @@
             },
         },
 
-        RerenderEntireTree() {
+        getState(){
+            return this._state;
+        },
+
+        _callSubsriber() {
             console.log('something changed')
         },
 
-        AddPost (){
+        getAddPost(){
+            return this.AddPost
+        },
+
+        addPost(){
             let newPost = {
-                id: 4, user: 'Admin', msg: this.state.ProfilePage.postText, likes: 0
+                id: 4, user: 'Admin', msg: this._state.ProfilePage.postText, likes: 0
             }
-            this.state.ProfilePage.msgData.push(newPost);
-            this.state.ProfilePage.postText = ''
-            this.RerenderEntireTree(this.state);
+            this._state.ProfilePage.msgData.push(newPost);
+            this._state.ProfilePage.postText = ''
+            this._callSubsriber(this._state);
         },
 
-        changeNewPostText (text) {
+        changeNewPostText(text) {
             let newText = text
-            this.state.ProfilePage.postText = newText;
-            this.RerenderEntireTree(this.state);
+            this._state.ProfilePage.postText = newText;
+            this._callSubsriber(this._state);
         },
-
 
         subscribe(observer) {
-            this.RerenderEntireTree = observer
+            this._callSubsriber = observer
         }
 }
-
-export default Store
+export default store
+window.store = store

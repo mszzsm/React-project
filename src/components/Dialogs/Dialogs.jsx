@@ -23,9 +23,9 @@ const Message = (props) => {
 }
 
 const Dialogs = (props) => {
+    console.log(props)
     let Items = props.data.map(item => <DialogItems user={item.user} status={item.status} id={item.id} />)
     let msg = props.data.map(item => <Message msg={item.msg} />)
-    console.log('dialogs')
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>

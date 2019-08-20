@@ -6,7 +6,7 @@
 
 .app-wrapper{
   display: grid;
-  max-width: 1200px;
+  width: auto;
   margin: 10 auto;
 
   grid-template-areas: 

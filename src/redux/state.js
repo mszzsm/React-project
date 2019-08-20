@@ -1,4 +1,10 @@
-let state =  {
+
+let RerenderEntireTree = () => {
+    console.log('state was changed')
+}
+
+
+export let state =  {
 
     navbarLinks: [
         { name: 'Profile', link: 'profile' },
@@ -21,21 +27,38 @@ let state =  {
         { user: "Michał Sztefanica", status: "", id: "2", msg: "Witam od Daniela" },
     ],
 
-    msgData: [
-        { id: '1', user: 'User1', msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iusto molestias modi alias dolorem', likes: 22 },
-        { id: '2', user: 'User2', msg: 'quaerat reprehenderit porro. Facilis veniam delectus inventore itaque nemo reiciendis reprehenderit ve', likes: 12 },
-        { id: '3', user: 'User3', msg: 'quaerat reprehenderit porro. Facilis veniam delectus inventore itaque nemo reiciendis reprehenderit ve', likes: 12 },
-    ]
+    ProfilePage: {
+        msgData:[
+            { id: '1', user: 'User1', msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iusto molestias modi alias dolorem', likes: 22 },
+            { id: '2', user: 'User2', msg: 'quaerat reprehenderit porro. Facilis veniam delectus inventore itaque nemo reiciendis reprehenderit ve', likes: 12 },
+            { id: '3', user: 'User3', msg: 'quaerat reprehenderit porro. Facilis veniam delectus inventore itaque nemo reiciendis reprehenderit ve', likes: 12 },
+        ], 
+    postText:  'this is post text'
+
+    },
 }
 
 
-export let AddPost = (postMsg) => {
-   
+window.state = state;
+
+export const AddPost = () => {
     let newPost = {
-        id: 4, user: 'Admin', msg: postMsg, likes: 0
+        id: 4, user: 'Admin', msg: state.ProfilePage.postText, likes: 0
     }
-    state.msgData.push(newPost)
-    debugger;
+    state.ProfilePage.msgData.push(newPost);
+    state.ProfilePage.postText = ''
+    RerenderEntireTree(state);
+
+}
+
+export const changeNewPostText = (text) => {
+    let newText = text
+    state.ProfilePage.postText = newText;
+    RerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    RerenderEntireTree = observer
 }
 
 export default state

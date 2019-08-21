@@ -18,11 +18,8 @@ const App = (props) => {
           <Nav data={props.appState} friends={props.appState.Friends}/>
           <div className="app-wrapper-content" >
           <Route path="/dialogs" render={ () => <Dialogs data={props.appState.dialogItems}/>}/>
-          <Route path="/profile" render={() => <Profile data={props.appState.ProfilePage} 
-                                                        addPost={props.addPost} 
-                                                        newPostText={props.postText}
-                                                        changeNewPostText={props.changeNewPostText}/>
-                                          }/>
+          <Route path="/profile" render={() =>  <Profile data={props.appState.ProfilePage} 
+                                                          dispatch={props.dispatch}/>}/>
         </div>
           <Route path="/dialogs/1" component={Footer} />
           <Footer title="this is footer"/>

@@ -1,4 +1,5 @@
 
+
     const store = {
         _state: {
             
@@ -36,36 +37,40 @@
             },
         },
 
-        getState(){
-            return this._state;
-        },
-
         _callSubsriber() {
             console.log('something changed')
+        },
+
+        getState(){
+            return this._state;
         },
 
         getAddPost(){
             return this.AddPost
         },
 
-        addPost(){
-            let newPost = {
-                id: 4, user: 'Admin', msg: this._state.ProfilePage.postText, likes: 0
-            }
-            this._state.ProfilePage.msgData.push(newPost);
-            this._state.ProfilePage.postText = ''
-            this._callSubsriber(this._state);
-        },
-
-        changeNewPostText(text) {
-            let newText = text
-            this._state.ProfilePage.postText = newText;
-            this._callSubsriber(this._state);
-        },
-
         subscribe(observer) {
             this._callSubsriber = observer
+        },
+
+        dispatch(action){
+            if (action.type === 'ADD-POST') {
+                let newPost = {
+                    id: 4, 
+                    user: 'Admin', 
+                    msg: this._state.ProfilePage.postText, 
+                    likes: 0
+                }
+                this._state.ProfilePage.msgData.push(newPost);
+                this._state.ProfilePage.postText = ''
+                this._callSubsriber(this._state);
+            } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+                this._state.ProfilePage.postText = action.text;
+                this._callSubsriber(this._state);
+            }
+
         }
-}
+    }
+
 export default store
 window.store = store

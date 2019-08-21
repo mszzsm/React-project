@@ -9,20 +9,18 @@ const MyPosts = (props) => {
     console.log(props)
 
     //let postsElements = props.posts.map(p => <Post message={p.message} likeCount={p.likesCount} />);
-    
-    const AddPost = () => { console.log('button add post clicked') }
 
     let postElements = props.data.msgData.map(el => (<Post msg={el.msg} user={el.user} id={el.id} likesCount={el.likes} />))
 
     let newPostElement = React.createRef();
 
     let addPost = () => { 
-        props.addPost()
+        props.dispatch({ type: "ADD-POST"})
     } 
 
     let changeNewPostText = () => {
         let text = newPostElement.current.value;
-        props.changeNewPostText.changeNewPostText(text)
+        props.dispatch({type: "UPDATE-NEW-POST-TEXT", text: text})
     }
 
     return (

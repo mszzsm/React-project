@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 let RenderEntireTree = (State) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App appState={store.getState()} addPost={store.addPost.bind(store)} changeNewPostText={store} />
+            <App appState={store.getState()} dispatch={store.dispatch.bind(store)} />
         </BrowserRouter>, document.getElementById('root')
     );
 }

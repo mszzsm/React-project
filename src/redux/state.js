@@ -1,15 +1,19 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
+const ADD_FRIEND = 'ADD-FRIEND'
+const UPDATE_NEW_FRIEND_TEXT = 'UPDATE-NEW-FRIEND-TEXT'
 
     const store = {
         _state: {
-            
-            navbarLinks: [
-                { name: 'Profile', link: 'profile' },
-                { name: 'Chat', link: 'dialogs' },
-                { name: 'News', link: 'news' },
-                { name: 'Music', link: 'music' },
-                { name: 'Settings', link: 'settings' },
-            ],
+            navBar: {
+                navbarLinks: [
+                    { name: 'Profile', link: 'profile' },
+                    { name: 'Chat', link: 'dialogs' },
+                    { name: 'News', link: 'news' },
+                    { name: 'Music', link: 'music' },
+                    { name: 'Settings', link: 'settings' },
+                ],
  
             
 
@@ -20,6 +24,8 @@
                     { id: 4, name: 'Tomasz',    img: 'https://picsum.photos/id/40/50/50' },
                     { id: 5, name: 'Karolina',  img: 'https://picsum.photos/id/50/50/50' }
                 ],
+                friendText: 'asd',
+            },
 
                 dialogItems: [
                     { user: "Michał Sztefanica", status: "", id: "1", msg: "Witam od Michała" },
@@ -54,23 +60,59 @@
         },
 
         dispatch(action){
-            if (action.type === 'ADD-POST') {
-                let newPost = {
-                    id: 4, 
-                    user: 'Admin', 
-                    msg: this._state.ProfilePage.postText, 
-                    likes: 0
+            if (action.type === ADD_POST) 
+                {
+                    let newPost = {
+                        id: 4, 
+                        user: 'Admin', 
+                        msg: this._state.ProfilePage.postText, 
+                        likes: 0
+                    }
+                    this._state.ProfilePage.msgData.push(newPost);
+                    this._state.ProfilePage.postText = ''
+                    this._callSubsriber(this._state);
+                } 
+            else if (action.type === UPDATE_NEW_POST_TEXT) 
+                {
+                    this._state.ProfilePage.postText = action.text;
+                    this._callSubsriber(this._state);
                 }
-                this._state.ProfilePage.msgData.push(newPost);
-                this._state.ProfilePage.postText = ''
-                this._callSubsriber(this._state);
-            } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-                this._state.ProfilePage.postText = action.text;
-                this._callSubsriber(this._state);
-            }
+            else if (action.type === ADD_FRIEND)
+                {
+                    let newFriend = {
+                        id: 1, 
+                        name: this._state.navBar.friendText, 
+                        img: 'https://picsum.photos/id/100/50/50' ,
+                    }
+                    this._state.navBar.Friends.push(newFriend);
+                    this._callSubsriber(this._state);
+                }
+            else if (action.type === UPDATE_NEW_FRIEND_TEXT) 
+                {
+                    this._state.friendText = action.text
+                }
+            
+        },
 
-        }
+       
+       
     }
+
+        export const AddPostActionCreator = () => {
+            return { type: "ADD-POST" }
+        }
+
+        export const UpdateNewPostTextActionCreator = (text) => {
+            return { type: "UPDATE-NEW-POST-TEXT", text: text }
+        }
+
+        export const AddFriendActionCreator = () => {
+            return { type: "ADD-FRIEND"}
+        }
+
+        export const UpdateNewFriendActionCreator = (text) => {
+            return { type: "UPDATE-NEW-FRIEND-TEXT" }
+        }
 
 export default store
 window.store = store

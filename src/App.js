@@ -12,15 +12,14 @@ import { Route } from 'react-router-dom';
 
 const App = (props) => {
   return (
- 
       <div className="app-wrapper">
         <Header title="This is header"/>
-          <Nav data={props.appState} friends={props.appState.Friends}/>
+        <Nav data={props.appState.navBar} friends={props.appState.navBar.Friends} msg={props.appState.navBar.friendText} dispatch={props.dispatch}/>
           <div className="app-wrapper-content" >
           <Route path="/dialogs" render={ () => <Dialogs data={props.appState.dialogItems}/>}/>
           <Route path="/profile" render={() =>  <Profile data={props.appState.ProfilePage} 
                                                           dispatch={props.dispatch}/>}/>
-        </div>
+      </div>
           <Route path="/dialogs/1" component={Footer} />
           <Footer title="this is footer"/>
       </div>
